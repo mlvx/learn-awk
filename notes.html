@@ -1,0 +1,16 @@
+<h1 id="awk-is-a-programming-language-designed-for-processing-plain-text-data.">&quot;AWK is a programming language designed for processing plain text data.&quot;</h1>
+<p>From the resource at <a href="http://write.flossmanuals.net/command-line/awk/">write.flossmanuals.net/command-line/awk/</a></p>
+<ul>
+<li>Small;</li>
+<li>Easy to learn;</li>
+<li>Ideal for quick, easy text processing;</li>
+<li>Prime use: Extract data from table-like input.</li>
+</ul>
+<p>The file <code>example.data</code> has a small sample of data in tabular format (Donkey Kong high scores), with which to practice using AWK.</p>
+<h2 id="example-1">Example 1</h2>
+<p>Parse <code>example.data</code> and return scores greater than 1x10^6 with first name:</p>
+<p><code>awk '$1 &gt; 1000000 { print $2, $1 }' example.data</code></p>
+<p>This returns: Billy 1050200 Steve 1049100</p>
+<p>From experimenting, it seems like the whitespace after <code>{</code> and before <code>}</code> is cosmetic. Also, using the <code>^</code> character for exponentiation (using '10^6' instead of '1000000') seems to work.</p>
+<p>This is the structure of an Awk statement: <code>pattern { action }</code></p>
+<p>The <em>pattern</em> defines a condition that must be met for the <em>action</em> to occur. AWK scripts consist of an arbitrary quantity of such statements. Basically, an AWK program reads its input (a file or stdin) line by line, and for each line executes the statements wherein the condition / pattern is matched.</p>

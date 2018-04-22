@@ -1,6 +1,6 @@
 # "AWK is a programming language designed for processing plain text data."
 
-From the resource at http://write.flossmanuals.net/command-line/awk/
+From the resource at [write.flossmanuals.net/command-line/awk/](http://write.flossmanuals.net/command-line/awk/)
 
 - Small;
 - Easy to learn;
