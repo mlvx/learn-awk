@@ -35,3 +35,22 @@ an AWK program reads its input (a file or stdin) line by line, and for each
 line executes the statements wherein the condition / pattern is matched.
 
 
+
+## Example 2
+
+Parse `example.data` and match the 4th column with year 2007; for lines that
+match, return rank and 3rd column (surname), and make it look legible:
+
+```awk '$4 == 2007 { print "Rank", NR, "-", $3 }' example.data```
+
+This returns:
+Rank 1 - Mitchell
+Rank 2 - Wiebe
+Rank 5 - Boyer
+
+The strings in the print statement look similar to Python, so that should be
+OK.
+How does AWK know the ranks?  The table is sorted; therefore the rank is the 
+row number, accessed via the AWK built-in variable **NR** <for **N**umber of **R**ow>.
+AWK has several useful inbuilt variables.
+

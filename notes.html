@@ -14,3 +14,8 @@
 <p>From experimenting, it seems like the whitespace after <code>{</code> and before <code>}</code> is cosmetic. Also, using the <code>^</code> character for exponentiation (using '10^6' instead of '1000000') seems to work.</p>
 <p>This is the structure of an Awk statement: <code>pattern { action }</code></p>
 <p>The <em>pattern</em> defines a condition that must be met for the <em>action</em> to occur. AWK scripts consist of an arbitrary quantity of such statements. Basically, an AWK program reads its input (a file or stdin) line by line, and for each line executes the statements wherein the condition / pattern is matched.</p>
+<h2 id="example-2">Example 2</h2>
+<p>Parse <code>example.data</code> and match the 4th column with year 2007; for lines that match, return rank and 3rd column (surname), and make it look legible:</p>
+<p><code>awk '$4 == 2007 { print &quot;Rank&quot;, NR, &quot;-&quot;, $3 }' example.data</code></p>
+<p>This returns: Rank 1 - Mitchell Rank 2 - Wiebe Rank 5 - Boyer</p>
+<p>The strings in the print statement look similar to Python, so that should be OK. How does AWK know the ranks? The table is sorted; therefore the rank is the row number, accessed via the AWK built-in variable <strong>NR</strong> <for **N**umber of **R**ow>. AWK has several useful inbuilt variables.</p>
